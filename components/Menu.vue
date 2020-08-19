@@ -94,6 +94,7 @@
 <style lang="scss" scoped>
 
 .sidenav{
+overflow: hidden;
     z-index: 100;
     position: fixed;
     background: #fff;

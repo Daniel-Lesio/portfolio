@@ -1,5 +1,5 @@
 <template>
-    <section :style="{'background-image' : `url(${urlMini})` }" >
+    <section :style="{'background-image' : `url(${imgUrl})` }" >
         <slot></slot>
     </section>
 </template>
@@ -17,10 +17,11 @@
             }
         },
         mounted(){
+            this.imgUrl = this.urlMini
             let myimg = new Image
                 myimg.src = this.url
                 myimg.onload = ()=>{
-                    this.urlMini = this.url
+                    this.imgUrl = this.url
                 }
             
         }

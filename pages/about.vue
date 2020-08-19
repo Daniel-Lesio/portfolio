@@ -32,8 +32,8 @@ import jump from 'jump.js'
 export default {
   data(){
     return{
-      url : require(`../assets/headers/contact.jpg`),
-      urlMini :  require(`../assets/headers/contact-mini.jpg`)
+      url : require(`../assets/headers/about.jpg`),
+      urlMini :  require(`../assets/headers/about-mini.jpg`)
     }
   },
   computed : {

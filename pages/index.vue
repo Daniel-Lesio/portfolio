@@ -22,7 +22,7 @@ export default {
   data(){
     return{
       url : require(`../assets/headers/index.jpg`),
-      urlMini :  require(`../assets/headers/index.jpg`)
+      urlMini :  require(`../assets/headers/index-mini.jpg`)
     }
   },
   computed : {
