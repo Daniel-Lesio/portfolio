@@ -10,16 +10,15 @@
     <section id="contact">
     <div class="mx-auto container page py-24">
       <div class="box p-5 text-center bg-white shadow">
-          <h1 class="text-4xl font-bold" >{{ text.header }}</h1>
+          <h1 class="text-4xl font-bold" >{{ content.header }}</h1>
           <hr class="bg-purple-800  mx-auto rounded mt-2 mb-4"/>
-          <p class="text-lg">{{ text.content }}</p>
-
-      </div>
-      <div class="box bg-white shadow">
-          <h1>O mnie</h1>
-          <hr/>
-          <p>Jestem Full Stack Developerem</p>
-
+          <!-- <p class="text-lg">{{ content.content }}</p> -->
+          <p class='text-lg my-2' v-for="(p,index) in content.paragraphs" :key="index">
+            {{ p }}
+          </p>
+          <nuxt-link to="/contact" class="btn pointer hover:bg-purple-700 text-white mt-10 px-3 py-2 bg-purple-800">
+            {{ buttonText }}
+          </nuxt-link >
       </div>
     </div>
   </section>
@@ -37,6 +36,33 @@ export default {
     }
   },
   computed : {
+    buttonText(){
+      return this.$store.state.language === "polish" ? "Kontakt" : "Contact"
+    },
+    content(){
+        let pol = {
+          header : 'O_mnie',
+          paragraphs : [
+            "Nazywam się Daniel Lesiewicz jestem full stack developerem. Zajmuję się projektowaniem stron internetowych, sklepów online  oraz aplikacji.",
+            "W swojej pracy korzystam z najnowszych technologii.",
+            "Tworzyłem zarówno backend jak i frontend aplikacji.",
+            "Lubię się uczyć nowych rzeczy i rozwiązywać problemy.",
+            "Nie lubię chamstwa,ludzi aroganckich i ciast owocowych.",
+            "Pozdrawiam i zapraszam do kontaktu."
+          ]          
+        }
+        let eng = {
+          header : 'About_me',
+          paragraphs : [
+            "My name is Daniel Lesiewicz and I am a full stack developer. I design websites, online stores and applications.",
+            "I use the latest technologies in my work.",
+            "In my work, I created both the backend and frontend of the application.",
+            "I like learning new things and solving problems.",
+            "I don't like rudeness, arrogant people and  cakes with fruits.",
+            "Best regards and feel free to contact me."          ]
+        }
+        return this.$store.state.language === "polish" ? pol : eng
+    },
     menuOpen(){
       return this.$store.state.menuOpen
     },
@@ -67,7 +93,11 @@ export default {
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
+.box{
+  z-index: 2;
+}
 .page{
+  
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
@@ -108,5 +138,32 @@ export default {
         transform: translateY(0) scale(2.5);
     }
     
+}
+#contact{
+  background: url('~assets/headers/mirror.jpg')center;
+  background-attachment: fixed;
+  position: relative;
+  &::after{
+    z-index: 0;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    // background: red;
+    background: radial-gradient(rgba(white,0.4),rgba(white,0.9));
+  }
+}
+.btn{
+  align-self: center;
+  justify-content: center;
+  display: inline-block;
+  width: 80%;
+  cursor: pointer;
+  transition: all ease-in-out .3s;
+  &:hover{
+   
+  }
 }
 </style>

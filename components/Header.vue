@@ -26,7 +26,7 @@
                     
                 </div>
             </div>
-            <div :class="{ active : $store.state.menuOpen }" class="nav-btn nav-btn-closed shadow-lg"
+            <div :class="{ active : $store.state.menuOpen }" class="mr-5 sm:mr-3 nav-btn nav-btn-closed shadow-lg"
             v-on:click="openMenu()"
             >
                 <span></span>

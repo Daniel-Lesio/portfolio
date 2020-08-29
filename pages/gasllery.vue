@@ -9,7 +9,7 @@
     </PageHeader>
     <section id="contact">
     <div class="mx-auto container page">
-      x : {{menuOpen ?'otwarte':'zamknięte' }}
+        
     </div>
   </section>
   </div>
@@ -85,5 +85,8 @@ export default {
         transform: translateY(0) scale(2.5);
     }
     
+}
+.page{
+  
 }
 </style>
